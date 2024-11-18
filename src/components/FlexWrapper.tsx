@@ -7,7 +7,7 @@ type FlexWrapperPropsType = {
     wrap?: string;
 }
 
-export const FlexWrapper =styled.div<FlexWrapperPropsType>`
+export const FlexWrapper = styled.div<FlexWrapperPropsType>`
     display: flex;
     flex-direction: ${props => props.direction || 'row'};
     justify-content: ${props => props.justify || 'flex-start'};
