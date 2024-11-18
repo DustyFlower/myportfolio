@@ -5,6 +5,29 @@ import {FlexWrapper} from '../../../components/FlexWrapper';
 import {Icon} from '../../../components/icon/Icon';
 import {Skill} from './skill/Skill';
 
+const skills = [
+    {
+        groupName: 'Languages',
+        content: ['TypeScript', 'Lua', 'Python', 'JavaScript'],
+    },
+    {
+        groupName: 'Databases',
+        content: ['SQLite', 'PostgreSQL', 'Mongo'],
+    },
+    {
+        groupName: 'Tools',
+        content: ['VSCode', 'Neovim', 'Linux', 'Figma', 'XFCE', 'Arch', 'Git', 'Font Awesome'],
+    },
+    {
+        groupName: 'Other',
+        content: ['HTML', 'CSS', 'EJS', 'SCSS', 'REST', 'Jinja'],
+    },
+    {
+        groupName: 'Frameworks',
+        content: ['React', 'Vue', 'Disnake', 'Discord.js', 'Flask', 'Express.js'],
+    },
+]
+
 const Skills = () => {
     return (
         <StyledSkills>
@@ -18,11 +41,9 @@ const Skills = () => {
                     <Icon iconId={'logo-outline'} width={'113px'} height={'113px'}/>
                 </FlexWrapper>
                 <FlexWrapper wrap={'wrap'}>
-                    <Skill skillGroupName={'Languages'} skillUnit={'JavaScript'}/>
-                    <Skill skillGroupName={'Databases'} skillUnit={'SQLite'}/>
-                    <Skill skillGroupName={'Tools'} skillUnit={'WebStorm'}/>
-                    <Skill skillGroupName={'Other'} skillUnit={'HTML5'}/>
-                    <Skill skillGroupName={'Frameworks'} skillUnit={'React'}/>
+                    {
+                        skills.map(skill => (<Skill skillGroupName={skill.groupName} skillUnit={skill.content}/>))
+                    }
                 </FlexWrapper>
             </FlexWrapper>
         </StyledSkills>

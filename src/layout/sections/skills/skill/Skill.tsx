@@ -2,8 +2,8 @@ import React, {FC} from 'react';
 import styled from 'styled-components';
 
 type SkillPropsType = {
-    skillGroupName: string;
-    skillUnit?: string;
+    skillGroupName: string
+    skillUnit: string[]
 }
 
 export const Skill: FC<SkillPropsType> = ({skillGroupName, skillUnit}) => {
@@ -14,7 +14,7 @@ export const Skill: FC<SkillPropsType> = ({skillGroupName, skillUnit}) => {
             </SkillTable>
             <SkillTable>
                 <td>
-                    <SkillUnit>{skillUnit}</SkillUnit>
+                    <SkillUnit>{skillUnit.join(' ')}</SkillUnit>
                 </td>
             </SkillTable>
         </StyledSkill>
