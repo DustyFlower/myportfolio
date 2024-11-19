@@ -8,6 +8,7 @@ import proj2 from '../../../assets/images/banner-3.jpg';
 import proj3 from '../../../assets/images/banner-2.jpg';
 import proj4 from '../../../assets/images/banner-4.jpg';
 import proj5 from '../../../assets/images/banner-5.png';
+import {Button} from '../../../components/Button';
 
 const projects = [
     {
@@ -57,7 +58,7 @@ export const Projects = () => {
         <StyledProjects>
             <FlexWrapper justify={'space-between'}>
                 <SectionTitle>#projects</SectionTitle>
-                <button>View all ~~&gt; </button>
+                <Button>View all ~~&gt; </Button>
             </FlexWrapper>
             <FlexWrapper direction={'row'} align={'space-between'} wrap={'wrap'}>
                 {projects.map((project, index) => (
