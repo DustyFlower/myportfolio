@@ -60,7 +60,7 @@ export const Projects = () => {
                 <SectionTitle>#projects</SectionTitle>
                 <Button>View all ~~&gt; </Button>
             </FlexWrapper>
-            <FlexWrapper direction={'row'} align={'space-between'} wrap={'wrap'}>
+            <FlexWrapper direction={'row'} align={'center'} wrap={'wrap'}>
                 {projects.map((project, index) => (
                     <Project key={index} nameOfProject={project.name} stack={project.stack} description={project.description} src={project.src}/>
                 ))}

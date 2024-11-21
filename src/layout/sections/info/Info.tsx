@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {SectionTitle} from '../../../components/SectionTitle';
 import {FlexWrapper} from '../../../components/FlexWrapper';
-import {Photo} from '../main/components/Photo';
+import {Photo} from '../../../components/photo/Photo';
 import photo2 from '../../../assets/images/photo-2.png'
 import {Icon} from '../../../components/icon/Icon';
 import {Button} from '../../../components/Button';

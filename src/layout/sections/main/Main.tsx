@@ -3,7 +3,7 @@ import styled, {css} from 'styled-components';
 import photo1 from '../../../assets/images/photo-1.png';
 import {FlexWrapper} from '../../../components/FlexWrapper';
 import {Icon} from '../../../components/icon/Icon';
-import {Photo} from './components/Photo';
+import {Photo} from '../../../components/photo/Photo';
 import {Button} from '../../../components/Button';
 
 export const Main = () => {
