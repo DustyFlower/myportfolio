@@ -5,35 +5,38 @@ import {FlexWrapper} from '../../../components/FlexWrapper';
 import {Icon} from '../../../components/icon/Icon';
 import {Photo} from '../../../components/photo/Photo';
 import {Button} from '../../../components/Button';
+import {Container} from '../../../components/Container';
 
 export const Main = () => {
     return (
         <StyledMain>
-            <FlexWrapper align={'center'} justify={'space-around'}>
-                <FlexWrapper direction={'column'} align={'start'}>
-                    <h1>
-                        Natalia is a front-end developer
-                    </h1>
-                    <span>She crafts responsive websites where technologies meet creativity</span>
-                    <Button>Contact me!!</Button>
+            <Container>
+                <FlexWrapper align={'center'} justify={'space-around'}>
+                    <FlexWrapper direction={'column'} align={'start'}>
+                        <h1>
+                            Natalia is a front-end developer
+                        </h1>
+                        <span>She crafts responsive websites where technologies meet creativity</span>
+                        <Button>Contact me!!</Button>
+                    </FlexWrapper>
+                    <FlexWrapper direction={'column'} align={'center'}>
+                        <Icon iconId={'logo-outline'} width={'155'} height={'155'}></Icon>
+                        <Icon iconId={'dots'} width={'84'} height={'84'}></Icon>
+                        <Photo src={photo1} alt="photo1"/>
+                        <TextUnderPhoto>Currently working on Portfolio</TextUnderPhoto>
+                    </FlexWrapper>
                 </FlexWrapper>
                 <FlexWrapper direction={'column'} align={'center'}>
-                    <Icon iconId={'logo-outline'} width={'155'} height={'155'}></Icon>
-                    <Icon iconId={'dots'} width={'84'} height={'84'}></Icon>
-                    <Photo src={photo1} alt="photo1"/>
-                    <TextUnderPhoto>Currently working on Portfolio</TextUnderPhoto>
+                    <Icon iconId={'quote'}/>
+                    <QuoteInMain textType={'quote'}>
+                        With great power comes great electricity bill
+                    </QuoteInMain>
+                    <QuoteInMain textType={'author'}>
+                        - Dr. Who
+                    </QuoteInMain>
+                    <Icon iconId={'quote'}/>
                 </FlexWrapper>
-            </FlexWrapper>
-            <FlexWrapper direction={'column'} align={'center'}>
-                <Icon iconId={'quote'}/>
-                <QuoteInMain textType={'quote'}>
-                    With great power comes great electricity bill
-                </QuoteInMain>
-                <QuoteInMain textType={'author'}>
-                    - Dr. Who
-                </QuoteInMain>
-                <Icon iconId={'quote'}/>
-            </FlexWrapper>
+            </Container>
         </StyledMain>
     );
 };
