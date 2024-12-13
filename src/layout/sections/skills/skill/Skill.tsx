@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
 import styled from 'styled-components';
+import {theme} from '../../../../styles/Theme';
 
 type SkillPropsType = {
     skillGroupName: string
@@ -9,31 +10,56 @@ type SkillPropsType = {
 export const Skill: FC<SkillPropsType> = ({skillGroupName, skillUnit}) => {
     return (
         <StyledSkill>
-            <SkillTable>
-                <td><SkillsGroupName>{skillGroupName}</SkillsGroupName></td>
-            </SkillTable>
-            <SkillTable>
-                <td>
+            <SkillsHead>
+                <SkillsTitle>
+                    <SkillsGroupName>{skillGroupName}</SkillsGroupName>
+                </SkillsTitle>
+            </SkillsHead>
+            <tbody>
+            <SkillsList>
+                <SkillsCell>
                     <SkillUnit>{skillUnit.join(' ')}</SkillUnit>
-                </td>
-            </SkillTable>
+                </SkillsCell>
+            </SkillsList>
+            </tbody>
         </StyledSkill>
     );
 };
 
 const StyledSkill = styled.table`
-    width: 25%;
-    background-color: rgba(255, 255, 255, 0.56);
-    margin: 10px;
+    border: ${theme.colors.fontText} 1px solid;
+    width: 28%;
+    border-spacing: 0;
 `
-const SkillTable = styled.tr`
-td {
-    border: black solid 1px;
-}`
+const SkillsHead = styled.thead`
+    
+`
+const SkillsTitle = styled.tr`
+    
+`
 
-const SkillsGroupName = styled.h3`
-font-weight: bold;
+const SkillsGroupName = styled.th`
+    border-bottom: ${theme.colors.fontText} 1px solid;
+    
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.3rem;
+    color: ${theme.colors.fontTitle};
+    
+    text-align: left;
+    padding: 0.5rem;
 `
+
+const SkillsList = styled.tr`
+`
+
+const SkillsCell = styled.td`
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.3rem;
+    padding: 0.5rem;
+`
+
 const SkillUnit = styled.span`
-font-weight: normal;
+
 `

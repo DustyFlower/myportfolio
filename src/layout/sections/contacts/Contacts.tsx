@@ -9,7 +9,7 @@ export const Contacts = () => {
     return (
         <StyledContacts>
             <Container>
-                <SectionTitle>#contacts</SectionTitle>
+                <SectionTitle widthOfLine={'8rem'}>contacts&nbsp;</SectionTitle>
                 <FlexWrapper align={'space-between'} justify={'space-between'}>
                     <StyledContactsText>
                         <Icon iconId={'extra-dots'}/>

@@ -12,7 +12,7 @@ export const Info = () => {
     return (
         <StyledInfo>
             <Container>
-                <SectionTitle>#about-me</SectionTitle>
+                <SectionTitle widthOfLine={'20.4rem'}>about-me&nbsp;</SectionTitle>
                 <FlexWrapper align={'center'}>
                     <FlexWrapper direction={'column'} align={'start'}>
                         <TextInfo>

@@ -12,7 +12,6 @@ export const Button = styled.button<ButtonPropsType>`
     
     cursor: pointer; 
     color: ${theme.colors.fontTitle};
-/*    padding: 1rem 2rem;*/
     font-family:'Fira Code', monospace;
     font-weight: 500;
     font-size: 1rem;

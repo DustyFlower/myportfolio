@@ -6,10 +6,9 @@ import {Project} from './project/Project';
 import proj1 from '../../../assets/images/banner-1.png';
 import proj2 from '../../../assets/images/banner-3.jpg';
 import proj3 from '../../../assets/images/banner-2.jpg';
-import proj4 from '../../../assets/images/banner-4.jpg';
-import proj5 from '../../../assets/images/banner-5.png';
-import {Button} from '../../../components/Button';
 import {Container} from '../../../components/Container';
+import {theme} from '../../../styles/Theme';
+import {Content} from '../../../components/Content';
 
 const projects = [
     {
@@ -35,7 +34,7 @@ const projects = [
         stack: [
             'CSS', 'Express', 'Node.js'
         ]
-    },
+    }/*,
     {
         name: 'Kotik Bot',
         description: 'Multi-functional discord bot',
@@ -51,28 +50,58 @@ const projects = [
         stack: [
             'Vue', 'TS', 'Less'
         ]
-    },
+    },*/
 ]
 
 export const Projects = () => {
     return (
         <StyledProjects>
             <Container>
-                <FlexWrapper justify={'space-between'}>
-                    <SectionTitle>#projects</SectionTitle>
-                    <Button>View all ~~&gt; </Button>
+                <FlexWrapper justify={'space-between'} align={'center'}>
+                    <SectionTitle widthOfLine={'32rem'}>projects&nbsp;</SectionTitle>
+                    <ProjectsLink href={'#'}>View all ~~&gt;</ProjectsLink>
                 </FlexWrapper>
-                <FlexWrapper direction={'row'} align={'center'} wrap={'wrap'}>
-                    {projects.map((project, index) => (
-                        <Project key={index} nameOfProject={project.name} stack={project.stack} description={project.description} src={project.src}/>
-                    ))}
-                </FlexWrapper>
+                <DesignIcon></DesignIcon>
+                <Content top={'50px'} bottom={'100px'}>
+                    <FlexWrapper justify={'space-between'} align={'start'} wrap={'wrap'}>
+                        {projects.map((project, index) => (
+                            <Project key={index} nameOfProject={project.name} stack={project.stack}
+                                     description={project.description} src={project.src}/>
+                        ))}
+                    </FlexWrapper>
+                </Content>
             </Container>
         </StyledProjects>
     );
 };
 
 const StyledProjects = styled.section`
-    min-height: 100vh;
-    background-color: #deefff;
+    
+`
+
+const ProjectsLink = styled.a`
+    font-weight: 500;
+    color: ${theme.colors.fontTitle};
+    transition: all 0.2s;
+
+    &:hover {
+        font-weight: 600;
+        transform: scale(1.1);
+    }
+`
+
+const DesignIcon = styled.div`
+    position: relative;
+
+    &::after {
+        content: '';
+        display: inline-block;
+        width: 155px;
+        height: 155px;
+        border: 1px solid ${theme.colors.fontText};
+
+        position: absolute;
+        right: -225px;
+        top: 230px;
+    }
 `
