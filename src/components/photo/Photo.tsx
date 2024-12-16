@@ -7,12 +7,14 @@ src: string;
 alt: string;
 width?: string;
 height?: string;
+scale?: string;
+left?: string;
 }
 
-export const Photo:FC<PhotoPropsType> = ({src, alt, height, width}) => {
+export const Photo:FC<PhotoPropsType> = ({src, alt, height, width, scale, left}) => {
     return (
         <PhotoWrapper $width={width} $height={height}>
-            <PhotoImg src={src} alt={alt}/>
+            <PhotoImg src={src} alt={alt} scale={scale} left={left} />
         </PhotoWrapper>
     );
 };
@@ -29,12 +31,12 @@ const PhotoWrapper = styled.div<PhotoWrapperPropsType>`
     position: relative;
 `
 type PhotoImgPropsType = {
-    width?: string;
+    scale?: string;
     left?: string;
 }
 
 const PhotoImg = styled.img<PhotoImgPropsType>`
-    width: ${props => props.width || '120%'};
+    width: ${props => props.scale || '100%'};
     object-fit: cover;
     position: absolute;
     top: 0;

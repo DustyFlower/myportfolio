@@ -10,50 +10,33 @@ type SkillPropsType = {
 export const Skill: FC<SkillPropsType> = ({skillGroupName, skillUnit}) => {
     return (
         <StyledSkill>
-            <SkillsHead>
-                <SkillsTitle>
-                    <SkillsGroupName>{skillGroupName}</SkillsGroupName>
-                </SkillsTitle>
-            </SkillsHead>
-            <tbody>
-            <SkillsList>
-                <SkillsCell>
-                    <SkillUnit>{skillUnit.join(' ')}</SkillUnit>
-                </SkillsCell>
-            </SkillsList>
-            </tbody>
+            <SkillsGroupName>{skillGroupName}</SkillsGroupName>
+            <SkillsCell>
+                <SkillUnit>{skillUnit.join(' ')}</SkillUnit>
+            </SkillsCell>
         </StyledSkill>
     );
 };
 
-const StyledSkill = styled.table`
+const StyledSkill = styled.div`
     border: ${theme.colors.fontText} 1px solid;
-    width: 28%;
+    width: 185px;
     border-spacing: 0;
 `
-const SkillsHead = styled.thead`
-    
-`
-const SkillsTitle = styled.tr`
-    
-`
 
-const SkillsGroupName = styled.th`
+const SkillsGroupName = styled.div`
     border-bottom: ${theme.colors.fontText} 1px solid;
-    
+
     font-weight: 600;
     font-size: 1rem;
     line-height: 1.3rem;
     color: ${theme.colors.fontTitle};
-    
+
     text-align: left;
     padding: 0.5rem;
 `
 
-const SkillsList = styled.tr`
-`
-
-const SkillsCell = styled.td`
+const SkillsCell = styled.div`
     font-weight: 400;
     font-size: 1rem;
     line-height: 1.3rem;

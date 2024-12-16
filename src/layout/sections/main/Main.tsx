@@ -25,7 +25,7 @@ export const Main = () => {
                     </FlexWrapper>
                     <FlexWrapper direction={'column'} align={'center'}>
 <StyledPhotoWrapper>
-    <Photo src={photo1} alt="photo1" width={'457px'} height={'386px'}/>
+    <Photo src={photo1} alt="photo1" width={'457px'} height={'386px'} scale={'120%'}/>
 </StyledPhotoWrapper>
                         <TextWrapper>
                             <TextUnderPhoto>Currently working on <ColoredSpan>Portfolio</ColoredSpan></TextUnderPhoto>
@@ -52,6 +52,22 @@ const StyledMain = styled.div`
     min-height: 100vh;
     display: flex;
     align-items: center;
+    
+    ${Container} {
+        position: relative;
+        
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 91px;
+            height: 91px;
+            border: 1px solid ${theme.colors.fontText};
+
+            position: absolute;
+            right: -170px;
+            bottom: 50px;
+        }
+    }
 `
 
 const StyledTitle = styled.h1`
@@ -116,22 +132,9 @@ const StyledPhotoWrapper = styled.div`
 const TextWrapper = styled.div`
     background-color: ${theme.colors.background};
     border: 1px solid ${theme.colors.fontText};
-    width: 402px;
+    width: 350px;
     height: 37px; 
     padding: 0.5rem;
-    position: relative;
-    
-    &::after {
-        content: '';
-        display: inline-block;
-        width: 91px;
-        height: 91px;
-        border: 1px solid ${theme.colors.fontText};
-        
-        position: absolute;
-        right: -210px;
-        bottom: -230px;
-    }
 `
 
 const TextUnderPhoto = styled.span`

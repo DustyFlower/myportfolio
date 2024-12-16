@@ -11,12 +11,12 @@ export const Sidebar = () => {
                 <SidebarListItem>
                     <IconLink href="#"><Icon iconId={'git'} width={'32'} height={'32'} viewBox={'0 0 32 32'}/></IconLink>
                 </SidebarListItem>
-                <SidebarList>
+                <SidebarListItem>
                     <IconLink href="#"><Icon iconId={'linkedin'} width={'32'} height={'32'} viewBox={'0 0 32 32'}/></IconLink>
-                </SidebarList>
-                <SidebarList>
+                </SidebarListItem>
+                <SidebarListItem>
                     <IconLink href="#"><Icon iconId={'telegram'} width={'32'} height={'32'} viewBox={'0 0 32 32'}/></IconLink>
-                </SidebarList>
+                </SidebarListItem>
             </SidebarList>
         </StyledSidebar>
     );

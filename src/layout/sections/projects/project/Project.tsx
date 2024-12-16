@@ -10,22 +10,14 @@ type ProjectPropsType = {
     description: string
 }
 
-export const Project: FC<ProjectPropsType> = ({nameOfProject,src, stack, description}) => {
+export const Project: FC<ProjectPropsType> = ({nameOfProject, src, stack, description}) => {
     return (
         <StyledProject>
-            <HeadImage>
-                <StyledTableProject>
-                    <ImageCell>
-                        <Image src={src} alt=""/>
-                    </ImageCell>
-                </StyledTableProject>
-            </HeadImage>
-            <tbody>
-            <StyledTableProject>
-                <StackCell>{stack.join(' ')}</StackCell>
-            </StyledTableProject>
-            <StyledTableProject>
-                <ProjectCell>
+                <ImageWrapper>
+                    <Image src={src} alt=""/>
+                </ImageWrapper>
+                <Stack>{stack.join(' ')}</Stack>
+                <ProjectInfo>
                     <NameOfProject>
                         {nameOfProject}
                     </NameOfProject>
@@ -33,59 +25,54 @@ export const Project: FC<ProjectPropsType> = ({nameOfProject,src, stack, descrip
                         {description}
                     </DescriptionOfProject>
                     <Button as={'a'} href={'#'}> Live &lt;~&gt; </Button>
-                </ProjectCell>
-            </StyledTableProject>
-            </tbody>
+                </ProjectInfo>
         </StyledProject>
     );
 };
 
 
-const StyledProject = styled.table`
+const StyledProject = styled.article`
     width: 333px;
-    table-layout: fixed;
+    /*    table-layout: fixed;*/
     border: ${theme.colors.fontText} solid 1px;
-    border-spacing: 0;
+    /*    border-spacing: 0;*/
     overflow: hidden;
 `
 
-const HeadImage = styled.thead`
-
-`
-
-const ImageCell = styled.th`
+const ImageWrapper = styled.div`
     border-bottom: ${theme.colors.fontText} solid 1px;
 `
 
-const StyledTableProject = styled.tr`;
-    
-    &:last-child {
-    border: none;
-    }
+const Image = styled.img`
+    display: block;
+    width: 331px;
+    height: 201px;
+    object-fit: cover;
 `
 
-const StackCell = styled.td`
-    padding: 8px;
-    
-    border-bottom: ${theme.colors.fontText} solid 1px;
-    tbody tr:last-child & {
-        border-bottom: none;
-    }
-    
-    font-weight: 400;
-    line-height: 1.3rem;
-`
-
-const ProjectCell = styled.td`
-padding: 16px;
+const ProjectInfo = styled.div`
+    padding: 16px;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    
+
     ${Button} {
         text-align: center;
         align-content: center;
     }
+`
+
+const Stack = styled.div`
+    padding: 8px;
+
+    border-bottom: ${theme.colors.fontText} solid 1px;
+
+    tbody tr:last-child & {
+        border-bottom: none;
+    }
+
+    font-weight: 400;
+    line-height: 1.3rem;
 `
 
 const NameOfProject = styled.h3`
@@ -96,13 +83,5 @@ const NameOfProject = styled.h3`
 `
 
 const DescriptionOfProject = styled.p`
-    
-`
 
-
-const Image = styled.img`
-    display: block;
-    width: 331px;
-    height: 201px;
-    object-fit: cover;
 `
