@@ -3,7 +3,12 @@ export const theme = {
         background: '#282C33',
         accent: '#C778DD',
 
-        fontText: 'rgba(171, 178, 191, 1)',
+        fontText: 'rgb(171, 178, 191)',
         fontTitle: '#FFFFFF',
+    },
+
+    media: {
+        tablet: 'screen and (max-width: 768px)',
+        mobile: 'screen and (max-width: 576px)',
     }
 }

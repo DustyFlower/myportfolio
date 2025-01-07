@@ -1,18 +1,33 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
-import {Menu} from '../../components/menu/Menu';
+import {DesktopMenu} from './headerMenu/desktopMenu/DesktopMenu';
 import {Logo} from '../../components/logo/Logo';
 import {Container} from '../../components/Container';
 import {FlexWrapper} from '../../components/FlexWrapper';
 import {theme} from '../../styles/Theme';
+import {MobileMenu} from './headerMenu/mobileMenu/MobileMenu';
+
+const items = ['home', 'works', 'about-me', 'contacts']
 
 export const Header = () => {
+
+    const [width, setWidth] = useState(window.innerWidth);
+    const breakpoint = 777;
+
+    useEffect(() => {
+        const handleWindowResize = () => setWidth(window.innerWidth)
+        window.addEventListener('resize', handleWindowResize);
+
+        return () => window.removeEventListener('resize', handleWindowResize);
+    }, []);
+
     return (
         <StyledHeader>
             <Container>
                 <FlexWrapper justify={'space-between'} align={'center'}>
                     <Logo/>
-                    <Menu/>
+                    {width < breakpoint ? <MobileMenu menuItems={items}/>
+                        : <DesktopMenu menuItems={items}/>}
                 </FlexWrapper>
             </Container>
         </StyledHeader>

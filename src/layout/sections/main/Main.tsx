@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled, {css} from 'styled-components';
 import photo1 from '../../../assets/images/photo-1.png';
 import {FlexWrapper} from '../../../components/FlexWrapper';
@@ -9,53 +9,83 @@ import {theme} from '../../../styles/Theme';
 import LogoOutline from '../../../assets/images/Logo.svg'
 import Dots from '../../../assets/images/Dots.svg'
 import Quotes from '../../../assets/images/quotes.svg'
+import DotsMobile from '../../../assets/images/DotsMobile.svg'
 
 export const Main = () => {
+
+    const [width, setWidth] = useState(window.innerWidth);
+    const breakpoint = 576;
+    const breakpointForQuote = 730;
+
+    useEffect(() => {
+        const handleWindowResize = () => setWidth(window.innerWidth)
+        window.addEventListener('resize', handleWindowResize);
+
+        return () => window.removeEventListener('resize', handleWindowResize);
+    }, []);
+
+
     return (
         <StyledMain>
-        <Container>
-            <FlexWrapper direction={'column'} gap={'7rem'}>
-                <FlexWrapper align={'center'} justify={'space-between'} gap={'1rem'}>
-                    <FlexWrapper direction={'column'} align={'start'} justify={'space-around'}>
-                        <StyledTitle>
-                            Natalia is a <ColoredSpan color={`${theme.colors.accent}`}>front-end developer</ColoredSpan>
-                        </StyledTitle>
-                        <TitleDescription>She crafts responsive websites where technologies meet creativity</TitleDescription>
-                        <Button>Contact me!!</Button>
+            <Container>
+                <FlexWrapper direction={'column'} gap={'7rem'}>
+                    <FlexWrapper align={'center'} justify={'space-between'} gap={'1rem'}>
+                        <FlexWrapper direction={'column'} align={'start'} justify={'space-around'}>
+                            <StyledTitle>
+                                Natalia is a <ColoredSpan color={`${theme.colors.accent}`}>front-end
+                                developer</ColoredSpan>
+                            </StyledTitle>
+                            <TitleDescription>She crafts responsive websites where technologies meet
+                                creativity</TitleDescription>
+
+                            {width > breakpoint ? <Button>Contact me!!</Button>
+                                : null}
+
+                        </FlexWrapper>
+                        <FlexWrapper direction={'column'} align={'center'}>
+                            <StyledPhotoWrapper>
+
+                                {width > breakpoint ?
+                                    <Photo src={photo1} alt="photo1" width={'457px'} height={'386px'} scale={'120%'}/>
+                                    :
+                                    <Photo src={photo1} alt="photo1" width={'316px'} height={'260px'} scale={'140%'}
+                                           top={'-50px'}/>}
+
+                            </StyledPhotoWrapper>
+                            <TextWrapper>
+                                <TextUnderPhoto>Currently working
+                                    on <ColoredSpan>Portfolio</ColoredSpan>
+                                </TextUnderPhoto>
+                            </TextWrapper>
+                        </FlexWrapper>
                     </FlexWrapper>
-                    <FlexWrapper direction={'column'} align={'center'}>
-<StyledPhotoWrapper>
-    <Photo src={photo1} alt="photo1" width={'457px'} height={'386px'} scale={'120%'}/>
-</StyledPhotoWrapper>
-                        <TextWrapper>
-                            <TextUnderPhoto>Currently working on <ColoredSpan>Portfolio</ColoredSpan></TextUnderPhoto>
-                        </TextWrapper>
-                    </FlexWrapper>
+
+                    {width > breakpointForQuote ? <FlexWrapper direction={'column'} align={'center'}>
+                            <FlexWrapper direction={'column'} align={'end'}>
+                                <QuoteInMain textType={'quote'}>
+                                    With great power comes great electricity bill
+                                </QuoteInMain>
+                                <QuoteInMain textType={'author'}>
+                                    - Dr. Who
+                                </QuoteInMain>
+                            </FlexWrapper>
+                        </FlexWrapper>
+                        : null}
+
                 </FlexWrapper>
-                <FlexWrapper direction={'column'} align={'center'}>
-                    <FlexWrapper direction={'column'} align={'end'}>
-                        <QuoteInMain textType={'quote'}>
-                            With great power comes great electricity bill
-                        </QuoteInMain>
-                        <QuoteInMain textType={'author'}>
-                            - Dr. Who
-                        </QuoteInMain>
-                    </FlexWrapper>
-                </FlexWrapper>
-            </FlexWrapper>
             </Container>
         </StyledMain>
     );
 };
 
 const StyledMain = styled.div`
-    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     align-items: center;
-    
+
     ${Container} {
         position: relative;
-        
+
         &::after {
             content: '';
             display: inline-block;
@@ -67,7 +97,20 @@ const StyledMain = styled.div`
             right: -170px;
             bottom: 50px;
         }
+
+        ${FlexWrapper} {
+            @media ${theme.media.tablet} {
+                gap: 0
+            }
+            ${FlexWrapper} {
+                @media ${theme.media.tablet} {
+                    flex-direction: column;
+                    padding-bottom: 25px;
+                }
+            }
+        }
     }
+}
 `
 
 const StyledTitle = styled.h1`
@@ -75,7 +118,11 @@ const StyledTitle = styled.h1`
     font-weight: 600;
     font-size: 2rem;
     line-height: 2.6rem;
-    margin: 3rem 0 2rem
+    margin: 3rem 0 2rem;
+
+    @media ${theme.media.mobile} {
+        margin-top: 0
+    }
 `
 type ColoredSpanType = {
     color?: string;
@@ -83,7 +130,7 @@ type ColoredSpanType = {
 
 const ColoredSpan = styled.span<ColoredSpanType>`
     font-weight: 600;
-    color: ${props => props.color || 'rgba(255, 255, 255, 1)'} 
+    color: ${props => props.color || 'rgba(255, 255, 255, 1)'}
 `
 
 const TitleDescription = styled.p`
@@ -92,6 +139,10 @@ const TitleDescription = styled.p`
     font-size: 1rem;
     line-height: 1.56rem;
     margin-bottom: 1.5rem;
+    
+    @media ${theme.media.mobile} {
+        line-height: 1.3rem;
+    }
 `
 
 const StyledPhotoWrapper = styled.div`
@@ -107,10 +158,18 @@ const StyledPhotoWrapper = styled.div`
         background-size: contain;
         background-repeat: no-repeat;
         z-index: -1;
-        
+
         position: absolute;
         top: 130px;
         left: 10px;
+
+        @media ${theme.media.mobile} {
+            width: 105px;
+            height: 105px;
+
+            top: 60px;
+            left: 0;
+        }
     }
 
     &::after {
@@ -126,14 +185,23 @@ const StyledPhotoWrapper = styled.div`
         position: absolute;
         right: 45px;
         bottom: 32px;
+
+        @media ${theme.media.mobile} {
+            width: 57px;
+            height: 57px;
+            background-image: url(${DotsMobile});
+
+            right: 7px;
+            bottom: 33px;
+        }
     }
 `
 
 const TextWrapper = styled.div`
     background-color: ${theme.colors.background};
     border: 1px solid ${theme.colors.fontText};
-    width: 350px;
-    height: 37px; 
+    max-width: 350px;
+    height: 37px;
     padding: 0.5rem;
 `
 
@@ -166,11 +234,11 @@ const QuoteInMain = styled.div<QuoteInMainPropsType>`
     font-size: 1.5rem;
     text-align: center;
     align-content: center;
-    
+
     position: relative;
 
     &::before {
-        content:'';
+        content: '';
         display: inline-block;
         width: 2.6rem;
         height: 1.8rem;
@@ -187,12 +255,11 @@ const QuoteInMain = styled.div<QuoteInMainPropsType>`
         width: 712px;
         height: 95px;
         font-weight: 500;
-        
+
         &::before {
             left: 10px;
         }
     `}
-
     ${props => props.textType === 'author' && css<QuoteInMainPropsType>`
         width: 162px;
         height: 63px;
@@ -203,9 +270,8 @@ const QuoteInMain = styled.div<QuoteInMainPropsType>`
             left: 105px;
         }
     `}
-
     &::before {
-        content:'';
+        content: '';
         display: inline-block;
         width: 2.6rem;
         height: 1.8rem;

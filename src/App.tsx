@@ -7,13 +7,24 @@ import {Info} from './layout/sections/info/Info';
 import {Contacts} from './layout/sections/contacts/Contacts';
 import {Footer} from './layout/footer/Footer';
 import {Sidebar} from './layout/sidebar/Sidebar';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 
 function App() {
+
+    const [width, setWidth] = useState(window.innerWidth);
+    const breakpoint = 1129;
+
+    useEffect(() => {
+        const handleWindowResize = () => setWidth(window.innerWidth)
+        window.addEventListener('resize', handleWindowResize);
+
+        return () => window.removeEventListener('resize', handleWindowResize);
+    }, []);
+
     return (
         <div className="App">
-            <Sidebar/>
+            {width > breakpoint ?  <Sidebar/> : null}
             <Header/>
             <Main/>
             <Projects/>

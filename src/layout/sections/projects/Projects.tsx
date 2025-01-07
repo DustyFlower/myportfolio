@@ -61,7 +61,6 @@ export const Projects = () => {
                     <SectionTitle widthOfLine={'32rem'}>projects&nbsp;</SectionTitle>
                     <ProjectsLink href={'#'}>View all ~~&gt;</ProjectsLink>
                 </FlexWrapper>
-                <DesignIcon></DesignIcon>
                 <Content top={'50px'} bottom={'100px'}>
                     <FlexWrapper justify={'space-between'} align={'start'} wrap={'wrap'}>
                         {projects.map((project, index) => (
@@ -76,32 +75,35 @@ export const Projects = () => {
 };
 
 const StyledProjects = styled.section`
-    
+    position: relative;
+
+
+    ${Content} {
+        position: relative;
+
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 155px;
+            height: 155px;
+            border: 1px solid ${theme.colors.fontText};
+            z-index: 1;
+
+            position: absolute;
+            right: 0;
+            transform: translateX(190%) translateY(-160%);
+        }
+    }
 `
 
-const ProjectsLink = styled.a`
+const ProjectsLink = styled.a`;
     font-weight: 500;
     color: ${theme.colors.fontTitle};
     transition: all 0.2s;
 
     &:hover {
         font-weight: 600;
-        transform: scale(1.1);
-    }
-`
-
-const DesignIcon = styled.div`
-    position: relative;
-
-    &::after {
-        content: '';
-        display: inline-block;
-        width: 155px;
-        height: 155px;
-        border: 1px solid ${theme.colors.fontText};
-
-        position: absolute;
-        right: -225px;
-        top: 230px;
+        /*transform: scale(1.1);*/
+        text-shadow: 0 0 2px rgb(199, 120, 221);
     }
 `

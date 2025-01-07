@@ -10,6 +10,10 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     margin: 0;
     font-family: "Fira Code", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -20,6 +24,13 @@ body {
     color: ${theme.colors.fontText};
     line-height: 1.2;
     background-color: ${theme.colors.background};
+    
+    width: 100%;
+    height: 100%;
+    min-width: 360px;
+    
+    position: relative;
+    overflow-x: clip;
 }
 
 a {

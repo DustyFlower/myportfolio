@@ -6,6 +6,7 @@ import {Icon} from '../../components/icon/Icon';
 import {Container} from '../../components/Container';
 import {theme} from '../../styles/Theme';
 import {Content} from '../../components/Content';
+import {IconLink} from '../../components/IconLink';
 
 export const Footer = () => {
     return (
@@ -75,14 +76,4 @@ const FooterIcons = styled.div`
 const Copyright = styled.small`
     margin-top: 3rem;
     font-size: 1rem;
-`
-
-const IconLink = styled.a`
-    color: ${theme.colors.fontText};
-    transition: all 0.2s;
-
-    &:hover {
-    color: ${theme.colors.fontTitle};
-    transform: scale(1.1);
-}
 `
