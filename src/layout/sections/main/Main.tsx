@@ -28,8 +28,9 @@ export const Main = () => {
     return (
         <StyledMain>
             <Container>
-                <FlexWrapper direction={'column'} gap={'7rem'}>
-                    <FlexWrapper align={'center'} justify={'space-between'} gap={'1rem'}>
+                <WrapperForTwoDesktopElements direction={'column'} gap={'7rem'}>
+                {/*<WrapperForTwoDesktopElements direction={'column'} justify={'space-between'}>*/}
+                    <WrapperForTitleAndPhoto align={'flex-start'} justify={'space-between'} gap={'2rem'}>
                         <FlexWrapper direction={'column'} align={'start'} justify={'space-around'}>
                             <StyledTitle>
                                 Natalia is a <ColoredSpan color={`${theme.colors.accent}`}>front-end
@@ -46,7 +47,7 @@ export const Main = () => {
                             <StyledPhotoWrapper>
 
                                 {width > breakpoint ?
-                                    <Photo src={photo1} alt="photo1" width={'457px'} height={'386px'} scale={'120%'}/>
+                                    <Photo src={photo1} alt="photo1" width={'457px'} height={'386px'} scale={'140%'} left={'44.5%'} top={'-60px'}/>
                                     :
                                     <Photo src={photo1} alt="photo1" width={'316px'} height={'260px'} scale={'140%'}
                                            top={'-50px'}/>}
@@ -58,7 +59,7 @@ export const Main = () => {
                                 </TextUnderPhoto>
                             </TextWrapper>
                         </FlexWrapper>
-                    </FlexWrapper>
+                    </WrapperForTitleAndPhoto>
 
                     {width > breakpointForQuote ? <FlexWrapper direction={'column'} align={'center'}>
                             <FlexWrapper direction={'column'} align={'end'}>
@@ -72,14 +73,14 @@ export const Main = () => {
                         </FlexWrapper>
                         : null}
 
-                </FlexWrapper>
+                </WrapperForTwoDesktopElements>
             </Container>
         </StyledMain>
     );
 };
 
 const StyledMain = styled.div`
-    min-height: 100dvh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
 
@@ -97,20 +98,21 @@ const StyledMain = styled.div`
             right: -170px;
             bottom: 50px;
         }
-
-        ${FlexWrapper} {
-            @media ${theme.media.tablet} {
-                gap: 0
-            }
-            ${FlexWrapper} {
-                @media ${theme.media.tablet} {
-                    flex-direction: column;
-                    padding-bottom: 25px;
-                }
-            }
-        }
     }
 }
+`
+
+const WrapperForTwoDesktopElements = styled(FlexWrapper)`
+}
+    @media ${theme.media.tablet} {
+        gap: .5rem;
+`
+
+const WrapperForTitleAndPhoto = styled(FlexWrapper)`
+    @media ${theme.media.tablet} {
+        flex-direction: column;
+        padding-bottom: 25px;
+        align-items: center;
 `
 
 const StyledTitle = styled.h1`
@@ -118,7 +120,7 @@ const StyledTitle = styled.h1`
     font-weight: 600;
     font-size: 2rem;
     line-height: 2.6rem;
-    margin: 3rem 0 2rem;
+    margin: 5rem 0 2rem;
 
     @media ${theme.media.mobile} {
         margin-top: 0
@@ -160,8 +162,8 @@ const StyledPhotoWrapper = styled.div`
         z-index: -1;
 
         position: absolute;
-        top: 130px;
-        left: 10px;
+        top: 90px;
+        left: 0;
 
         @media ${theme.media.mobile} {
             width: 105px;
@@ -183,8 +185,8 @@ const StyledPhotoWrapper = styled.div`
         z-index: 1;
 
         position: absolute;
-        right: 45px;
-        bottom: 32px;
+        right: 10px;
+        bottom: 45px;
 
         @media ${theme.media.mobile} {
             width: 57px;
@@ -200,9 +202,13 @@ const StyledPhotoWrapper = styled.div`
 const TextWrapper = styled.div`
     background-color: ${theme.colors.background};
     border: 1px solid ${theme.colors.fontText};
-    max-width: 350px;
-    height: 37px;
+    max-width: 402px;
+    min-height: 37px;
     padding: 0.5rem;
+    
+    @media screen and (min-width: 576px) {
+        min-width: 402px;
+    }
 `
 
 const TextUnderPhoto = styled.span`

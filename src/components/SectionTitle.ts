@@ -1,9 +1,18 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import {theme} from '../styles/Theme';
 
 type SectionTitlePropsType = {
     widthOfLine: string
 }
+
+const lineAnimation = (finalWidth: string) => keyframes`
+  from {
+    width: 0;
+  }
+  to {
+    width: ${finalWidth};
+  }
+`;
 
 export const SectionTitle = styled.h2<SectionTitlePropsType>`
     color: ${theme.colors.fontTitle};
@@ -28,5 +37,7 @@ export const SectionTitle = styled.h2<SectionTitlePropsType>`
         
         position: absolute;
         top: 50%;
+
+        animation: ${props => lineAnimation(props.widthOfLine || '127px')} 0.8s ease-out forwards;
     }
 `
