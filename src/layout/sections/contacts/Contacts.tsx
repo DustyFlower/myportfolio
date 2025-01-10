@@ -12,8 +12,8 @@ export const Contacts = () => {
     return (
         <StyledContacts>
             <Container>
-                <SectionTitle widthOfLine={'8rem'}>contacts&nbsp;</SectionTitle>
-                <Content top={'2.8rem'} bottom={'9rem'}>
+                <SectionTitle widthOfLine={'8rem'} maxWidthOfLine={127}>contacts&nbsp;</SectionTitle>
+                <Content top={'2.8rem'} bottom={'9rem'} mobileTop={'25px'} mobileBottom={'50px'}>
                     <FlexWrapper align={'space-between'} justify={'space-between'}>
                         <StyledContactsText>
                             I’m interested in freelance opportunities. However, if you have other request or question,
@@ -55,6 +55,12 @@ const StyledContacts = styled.section`
             top: 45px;
         }
     }
+    ${FlexWrapper} {
+        @media ${theme.media.mobile} {
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
 `
 
 const StyledContactsText = styled.p`
@@ -64,6 +70,7 @@ const StyledContactsText = styled.p`
 `
 
 const ContactsFrame = styled.div`
+    max-width: 204px;
     display: flex;
     flex-direction: column;
     border: ${theme.colors.fontText} solid 1px;

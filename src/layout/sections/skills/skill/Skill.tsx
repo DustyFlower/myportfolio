@@ -22,6 +22,10 @@ const StyledSkill = styled.div`
     border: ${theme.colors.fontText} 1px solid;
     width: 185px;
     border-spacing: 0;
+
+    @media ${theme.media.mobile} {
+        width: 100%;
+    }
 `
 
 const SkillsGroupName = styled.div`

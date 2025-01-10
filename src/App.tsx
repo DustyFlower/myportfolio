@@ -13,7 +13,7 @@ import React, {useEffect, useState} from 'react';
 function App() {
 
     const [width, setWidth] = useState(window.innerWidth);
-    const breakpoint = 1129;
+    const breakpoint = 1144;
 
     useEffect(() => {
         const handleWindowResize = () => setWidth(window.innerWidth)

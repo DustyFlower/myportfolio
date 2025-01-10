@@ -32,10 +32,8 @@ export const Project: FC<ProjectPropsType> = ({nameOfProject, src, stack, descri
 
 
 const StyledProject = styled.article`
-    width: 333px;
-    /*    table-layout: fixed;*/
+    width: 330px;
     border: ${theme.colors.fontText} solid 1px;
-    /*    border-spacing: 0;*/
     overflow: hidden;
 `
 
@@ -45,7 +43,7 @@ const ImageWrapper = styled.div`
 
 const Image = styled.img`
     display: block;
-    width: 331px;
+    width: 328px;
     height: 201px;
     object-fit: cover;
 `

@@ -58,25 +58,29 @@ export const Projects = () => {
         <StyledProjects>
             <Container>
                 <FlexWrapper justify={'space-between'} align={'center'}>
-                    <SectionTitle widthOfLine={'32rem'}>projects&nbsp;</SectionTitle>
+                    <SectionTitle maxWidthOfLine={511} widthOfLine={'32rem'}>projects&nbsp;</SectionTitle>
                     <ProjectsLink href={'#'}>View all ~~&gt;</ProjectsLink>
                 </FlexWrapper>
-                <Content top={'50px'} bottom={'100px'}>
-                    <FlexWrapper justify={'space-between'} align={'start'} wrap={'wrap'}>
+                <Content top={'50px'} bottom={'100px'} mobileTop={'25px'} mobileBottom={'50px'}>
+                    <ProjectsWrapper justify={'center'} align={'start'} wrap={'wrap'}>
                         {projects.map((project, index) => (
                             <Project key={index} nameOfProject={project.name} stack={project.stack}
                                      description={project.description} src={project.src}/>
                         ))}
-                    </FlexWrapper>
+                    </ProjectsWrapper>
                 </Content>
             </Container>
         </StyledProjects>
     );
 };
 
+const ProjectsWrapper = styled(FlexWrapper)`
+    align-content: center;
+    gap: 15px;
+`
+
 const StyledProjects = styled.section`
     position: relative;
-
 
     ${Content} {
         position: relative;
@@ -94,6 +98,7 @@ const StyledProjects = styled.section`
             transform: translateX(190%) translateY(-160%);
         }
     }
+    
 `
 
 const ProjectsLink = styled.a`;
@@ -103,7 +108,6 @@ const ProjectsLink = styled.a`;
 
     &:hover {
         font-weight: 600;
-        /*transform: scale(1.1);*/
         text-shadow: 0 0 2px rgb(199, 120, 221);
     }
 `

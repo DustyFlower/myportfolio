@@ -29,7 +29,6 @@ export const Main = () => {
         <StyledMain>
             <Container>
                 <WrapperForTwoDesktopElements direction={'column'} gap={'7rem'}>
-                {/*<WrapperForTwoDesktopElements direction={'column'} justify={'space-between'}>*/}
                     <WrapperForTitleAndPhoto align={'flex-start'} justify={'space-between'} gap={'2rem'}>
                         <FlexWrapper direction={'column'} align={'start'} justify={'space-around'}>
                             <StyledTitle>
@@ -47,7 +46,8 @@ export const Main = () => {
                             <StyledPhotoWrapper>
 
                                 {width > breakpoint ?
-                                    <Photo src={photo1} alt="photo1" width={'457px'} height={'386px'} scale={'140%'} left={'44.5%'} top={'-60px'}/>
+                                    <Photo src={photo1} alt="photo1" width={'457px'} height={'386px'} scale={'140%'}
+                                           left={'44.5%'} top={'-60px'}/>
                                     :
                                     <Photo src={photo1} alt="photo1" width={'316px'} height={'260px'} scale={'140%'}
                                            top={'-50px'}/>}
@@ -104,8 +104,9 @@ const StyledMain = styled.div`
 
 const WrapperForTwoDesktopElements = styled(FlexWrapper)`
 }
-    @media ${theme.media.tablet} {
-        gap: .5rem;
+
+@media ${theme.media.tablet} {
+    gap: .5rem;
 `
 
 const WrapperForTitleAndPhoto = styled(FlexWrapper)`
@@ -141,7 +142,7 @@ const TitleDescription = styled.p`
     font-size: 1rem;
     line-height: 1.56rem;
     margin-bottom: 1.5rem;
-    
+
     @media ${theme.media.mobile} {
         line-height: 1.3rem;
     }
@@ -205,7 +206,7 @@ const TextWrapper = styled.div`
     max-width: 402px;
     min-height: 37px;
     padding: 0.5rem;
-    
+
     @media screen and (min-width: 576px) {
         min-width: 402px;
     }

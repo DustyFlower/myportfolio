@@ -1,18 +1,10 @@
-import styled, {keyframes} from 'styled-components';
+import styled from 'styled-components';
 import {theme} from '../styles/Theme';
 
 type SectionTitlePropsType = {
-    widthOfLine: string
+    maxWidthOfLine?: number;
+    widthOfLine?: string;
 }
-
-const lineAnimation = (finalWidth: string) => keyframes`
-  from {
-    width: 0;
-  }
-  to {
-    width: ${finalWidth};
-  }
-`;
 
 export const SectionTitle = styled.h2<SectionTitlePropsType>`
     color: ${theme.colors.fontTitle};
@@ -22,22 +14,19 @@ export const SectionTitle = styled.h2<SectionTitlePropsType>`
     text-align: start;
     
     position: relative;
-    
+
     &::before {
         content: '#';
         color: ${theme.colors.accent};
     }
-    
+
     &::after {
         content: '';
         display: inline-block;
-        width: ${props => props.widthOfLine || '127px'};
+        width: clamp(127px, 40vw, ${props => props.widthOfLine});
         height: 1px;
         background-color: ${theme.colors.accent};
-        
         position: absolute;
         top: 50%;
-
-        animation: ${props => lineAnimation(props.widthOfLine || '127px')} 0.8s ease-out forwards;
     }
 `
