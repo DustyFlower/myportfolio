@@ -38,8 +38,8 @@ export const Main = () => {
                             <TitleDescription>She crafts responsive websites where technologies meet
                                 creativity</TitleDescription>
 
-                            {width > breakpoint ? <Button>Contact me!!</Button>
-                                : null}
+                           <Button>Contact me!!</Button>
+
 
                         </FlexWrapper>
                         <FlexWrapper direction={'column'} align={'center'}>
@@ -114,6 +114,11 @@ const WrapperForTitleAndPhoto = styled(FlexWrapper)`
         flex-direction: column;
         padding-bottom: 25px;
         align-items: center;
+    }
+    
+    @media ${theme.media.mobile} {
+        gap: .5rem;
+    }
 `
 
 const StyledTitle = styled.h1`
@@ -209,6 +214,10 @@ const TextWrapper = styled.div`
 
     @media screen and (min-width: 576px) {
         min-width: 402px;
+    }
+
+    @media ${theme.media.mobile} {
+        margin-bottom: 15px;
     }
 `
 

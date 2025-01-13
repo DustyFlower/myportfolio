@@ -12,7 +12,7 @@ export const Contacts = () => {
     return (
         <StyledContacts>
             <Container>
-                <SectionTitle widthOfLine={'8rem'} maxWidthOfLine={127}>contacts&nbsp;</SectionTitle>
+                <SectionTitle widthOfLine={'8rem'} maxWidthOfLine={127} dynamicValue={'40vw'}>contacts&nbsp;</SectionTitle>
                 <Content top={'2.8rem'} bottom={'9rem'} mobileTop={'25px'} mobileBottom={'50px'}>
                     <FlexWrapper align={'space-between'} justify={'space-between'}>
                         <StyledContactsText>
@@ -58,7 +58,7 @@ const StyledContacts = styled.section`
     ${FlexWrapper} {
         @media ${theme.media.mobile} {
             flex-direction: column;
-            gap: 1rem;
+            gap: 2rem;
         }
     }
 `

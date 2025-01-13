@@ -25,7 +25,7 @@ export const Info = () => {
     return (
         <StyledInfo>
             <Container>
-                <SectionTitle widthOfLine={'20.4rem'} maxWidthOfLine={326}>about-me&nbsp;</SectionTitle>
+                <SectionTitle widthOfLine={'20.4rem'} maxWidthOfLine={326} dynamicValue={'35vw'}>about-me&nbsp;</SectionTitle>
                 <Content top={'1.5rem'} bottom={'7rem'} mobileBottom={'50px'}>
                     <MainWrapper justify={'space-between'} gap={'1.5rem'}>
                         <FlexWrapper direction={'column'} align={'start'}>

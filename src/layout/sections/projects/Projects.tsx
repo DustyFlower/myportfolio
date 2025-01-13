@@ -58,7 +58,7 @@ export const Projects = () => {
         <StyledProjects>
             <Container>
                 <FlexWrapper justify={'space-between'} align={'center'}>
-                    <SectionTitle maxWidthOfLine={511} widthOfLine={'32rem'}>projects&nbsp;</SectionTitle>
+                    <SectionTitle maxWidthOfLine={511} widthOfLine={'32rem'} dynamicValue={'40vw'} noWidth={true}>projects&nbsp;</SectionTitle>
                     <ProjectsLink href={'#'}>View all ~~&gt;</ProjectsLink>
                 </FlexWrapper>
                 <Content top={'50px'} bottom={'100px'} mobileTop={'25px'} mobileBottom={'50px'}>

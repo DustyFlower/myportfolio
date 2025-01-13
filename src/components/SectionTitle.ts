@@ -1,9 +1,11 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import {theme} from '../styles/Theme';
 
 type SectionTitlePropsType = {
     maxWidthOfLine?: number;
     widthOfLine?: string;
+    dynamicValue?: string;
+    noWidth?: boolean;
 }
 
 export const SectionTitle = styled.h2<SectionTitlePropsType>`
@@ -23,10 +25,16 @@ export const SectionTitle = styled.h2<SectionTitlePropsType>`
     &::after {
         content: '';
         display: inline-block;
-        width: clamp(127px, 40vw, ${props => props.widthOfLine});
+        width: clamp(127px, ${props => props.dynamicValue}, ${props => props.widthOfLine});
         height: 1px;
         background-color: ${theme.colors.accent};
         position: absolute;
         top: 50%;
+        
+        @media ${theme.media.mobile} {
+            ${props => props.noWidth && css`
+            width: 0;
+            `}
+        }
     }
 `

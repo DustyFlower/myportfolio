@@ -4,6 +4,7 @@ import React, {FC} from 'react';
 
 type PhotoPropsType = {
 src: string;
+srcSet?: string;
 alt: string;
 width?: string;
 height?: string;
@@ -12,10 +13,10 @@ left?: string;
 top?: string;
 }
 
-export const Photo:FC<PhotoPropsType> = ({src, alt, height, width, scale, left, top}) => {
+export const Photo:FC<PhotoPropsType> = ({src, srcSet, alt, height, width, scale, left, top}) => {
     return (
         <PhotoWrapper $width={width} $height={height}>
-            <PhotoImg src={src} alt={alt} scale={scale} left={left} top={top} />
+            <PhotoImg src={src} srcSet={srcSet} alt={alt} scale={scale} left={left} top={top} />
         </PhotoWrapper>
     );
 };

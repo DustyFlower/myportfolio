@@ -34,7 +34,7 @@ const Skills = () => {
     return (
         <StyledSkills>
             <Container>
-                <SectionTitle widthOfLine={'15rem'} maxWidthOfLine={239}>skills&nbsp;</SectionTitle>
+                <SectionTitle widthOfLine={'15rem'} maxWidthOfLine={239} dynamicValue={'45vw'}>skills&nbsp;</SectionTitle>
                 <Content top={'45px'} bottom={'110px'} mobileTop={'25px'} mobileBottom={'50px'}>
                     <FlexWrapper justify={'flex-end'}>
                         <SkillsWrapper direction={'column'} wrap={'wrap-reverse'} align={'flex-start'} gap={'1rem'}
