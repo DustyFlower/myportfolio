@@ -37,9 +37,13 @@ export const Main = () => {
                             </StyledTitle>
                             <TitleDescription>She crafts responsive websites where technologies meet
                                 creativity</TitleDescription>
-
                            <Button>Contact me!!</Button>
 
+                            <ModalFormOverlay isOpen={false}>
+                                <ModalFormWrapper>
+
+                                </ModalFormWrapper>
+                            </ModalFormOverlay>
 
                         </FlexWrapper>
                         <FlexWrapper direction={'column'} align={'center'}>
@@ -78,6 +82,38 @@ export const Main = () => {
         </StyledMain>
     );
 };
+
+const ModalFormOverlay = styled.div<{isOpen: boolean}>`
+position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    
+    ${props => props.isOpen && css<{ isOpen: boolean }>`
+    display: flex;
+`}
+`
+
+const ModalFormWrapper = styled.div`
+    max-width: 569px;
+    width: 90%;
+    max-height: 342px;
+    height: 90%;
+    background-color: ${theme.colors.background};
+    padding: 2rem;
+    
+    @media ${theme.media.mobile} {
+        width: 100%;
+        max-height: 100dvh;
+        height: 100%;
+    }
+`
 
 const StyledMain = styled.div`
     min-height: 100vh;

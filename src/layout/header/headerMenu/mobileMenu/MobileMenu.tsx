@@ -42,7 +42,7 @@ const MobileMenuLogo = styled(Logo)`
     position: fixed;
     top: 23px;
     left: 16px;
-    z-index: 999999;
+    z-index: 5;
 `
 
 const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
@@ -51,19 +51,16 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 999;
+    z-index: 4;
     background-color: ${theme.colors.background};
     pointer-events: all;
     display: none;
-
-    ${props => props.isOpen && css<{ isOpen: boolean }>`
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        padding: 95px 16px 36px;
-    `}
     
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 95px 16px 36px;
+
     ul {
         display: flex;
         gap: 32px;
@@ -74,6 +71,10 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
     ${FlexWrapper} {
         align-self: center;
     }
+    
+    ${props => props.isOpen && css<{ isOpen: boolean }>`
+        display: flex;
+    `}
 `
 
 const BurgerButton = styled.button<{ isOpen: boolean }>`
@@ -82,7 +83,7 @@ const BurgerButton = styled.button<{ isOpen: boolean }>`
     right: -110px;
     width: 200px;
     height: 200px;
-    z-index: 999999;
+    z-index: 6;
 
     span {
         display: block;
