@@ -9,6 +9,7 @@ import proj3 from '../../../assets/images/banner-2.jpg';
 import {Container} from '../../../components/Container';
 import {theme} from '../../../styles/Theme';
 import {Content} from '../../../components/Content';
+import {S} from './Projects_Styles'
 
 const projects = [
     {
@@ -55,59 +56,21 @@ const projects = [
 
 export const Projects = () => {
     return (
-        <StyledProjects>
+        <S.Projects id={'works'}>
             <Container>
                 <FlexWrapper justify={'space-between'} align={'center'}>
                     <SectionTitle maxWidthOfLine={511} widthOfLine={'32rem'} dynamicValue={'40vw'} noWidth={true}>projects&nbsp;</SectionTitle>
-                    <ProjectsLink href={'#'}>View all ~~&gt;</ProjectsLink>
+                    <S.ProjectsLink href={'#'}>View all ~~&gt;</S.ProjectsLink>
                 </FlexWrapper>
                 <Content top={'50px'} bottom={'100px'} mobileTop={'25px'} mobileBottom={'50px'}>
-                    <ProjectsWrapper justify={'center'} align={'start'} wrap={'wrap'}>
+                    <S.ProjectsWrapper justify={'center'} align={'start'} wrap={'wrap'}>
                         {projects.map((project, index) => (
                             <Project key={index} nameOfProject={project.name} stack={project.stack}
                                      description={project.description} src={project.src}/>
                         ))}
-                    </ProjectsWrapper>
+                    </S.ProjectsWrapper>
                 </Content>
             </Container>
-        </StyledProjects>
+        </S.Projects>
     );
 };
-
-const ProjectsWrapper = styled(FlexWrapper)`
-    align-content: center;
-    gap: 15px;
-`
-
-const StyledProjects = styled.section`
-    position: relative;
-
-    ${Content} {
-        position: relative;
-
-        &::after {
-            content: '';
-            display: inline-block;
-            width: 155px;
-            height: 155px;
-            border: 1px solid ${theme.colors.fontText};
-            z-index: 1;
-
-            position: absolute;
-            right: 0;
-            transform: translateX(190%) translateY(-160%);
-        }
-    }
-    
-`
-
-const ProjectsLink = styled.a`;
-    font-weight: 500;
-    color: ${theme.colors.fontTitle};
-    transition: all 0.2s;
-
-    &:hover {
-        font-weight: 600;
-        text-shadow: 0 0 2px rgb(199, 120, 221);
-    }
-`

@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import styled from 'styled-components';
 import {FlexWrapper} from '../../components/FlexWrapper';
 import {Logo} from '../../components/logo/Logo';
 import {Icon} from '../../components/icon/Icon';
 import {Container} from '../../components/Container';
-import {theme} from '../../styles/Theme';
 import {Content} from '../../components/Content';
 import {IconLink} from '../../components/IconLink';
+
+import {S} from './Footer_Styles'
 
 export const Footer = () => {
 
@@ -21,72 +21,40 @@ export const Footer = () => {
     }, []);
 
     return (
-        <StyledFooter>
+        <S.Footer>
             <Container>
                 <Content top={'2rem'} bottom={'2rem'} mobileTop={'25px'} mobileBottom={'15px'}>
                     <FlexWrapper direction={'row'} justify={'space-between'}>
                         <FlexWrapper direction={'column'} align={'start'} gap={'1rem'}>
-                            <LogoBox>
-                                <Logo/><span>elias@elias-dev.ml</span>
-                            </LogoBox>
-                            <TextUnderLogo>Web and front-end developer</TextUnderLogo>
+                            <S.LogoBox>
+                                <Logo/><span>lukashevanatalia1992@gmail.com</span>
+                            </S.LogoBox>
+                            <S.TextUnderLogo>Web and front-end developer</S.TextUnderLogo>
                         </FlexWrapper>
 
                         {width > breakpoint ?
                         <FlexWrapper direction={'column'} align={'start'} gap={'1.3rem'}>
-                            <FooterMedia>Media</FooterMedia>
-                            <FooterIcons>
-                                <IconLink href={'#'}>
+                            <S.FooterMedia>Media</S.FooterMedia>
+                            <S.FooterIcons>
+                                <IconLink href={'https://github.com/DustyFlower'}>
                                     <Icon iconId={'git'} width={'32'} height={'32'} viewBox={'0 0 32 32'}/>
                                 </IconLink>
-                                <IconLink href={'#'}>
-                                    <Icon iconId={'figma'} width={'32'} height={'32'} viewBox={'0 0 32 32'}/>
+                                <IconLink href={'https://x.com/dustyflower_'}>
+                                    <Icon iconId={'twitter'} width={'32'} height={'32'} viewBox={'0 0 32 32'}/>
                                 </IconLink>
-                                <IconLink href={'#'}>
+                                <IconLink href={'https://discord.com/users/1001767918838743090/'}>
                                     <Icon iconId={'discord'} width={'32'} height={'32'} viewBox={'0 0 32 32'}/>
                                 </IconLink>
-                            </FooterIcons>
+                            </S.FooterIcons>
                         </FlexWrapper>
                             :
                             null}
                     </FlexWrapper>
                     <FlexWrapper direction={'row'} justify={'center'}>
-                        <Copyright>© Copyright 2022. Made by Elias</Copyright>
+                        <S.Copyright>© Copyright 2025. Made by Natalia</S.Copyright>
                     </FlexWrapper>
                 </Content>
             </Container>
-        </StyledFooter>
+        </S.Footer>
     );
 };
-
-const StyledFooter = styled.footer`
-    border-top: ${theme.colors.fontText} solid 1px;
-    display: flex;
-    flex-direction: column;
-`
-
-const LogoBox = styled.div`
-    display: flex;
-    gap: 1rem;
-`
-
-const TextUnderLogo = styled.span`
-    color: ${theme.colors.fontTitle};
-`
-
-const FooterMedia = styled.h5`
-    color: ${theme.colors.fontTitle};
-    font-weight: 500;
-    font-size: 1.5rem;
-    line-height: 2rem;
-`
-
-const FooterIcons = styled.div`
-    display: flex;
-    gap: .5rem;
-`
-
-const Copyright = styled.small`
-    margin-top: 3rem;
-    font-size: 1rem;
-`

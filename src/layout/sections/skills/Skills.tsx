@@ -5,7 +5,7 @@ import {FlexWrapper} from '../../../components/FlexWrapper';
 import {Skill} from './skill/Skill';
 import {Container} from '../../../components/Container';
 import {Content} from '../../../components/Content';
-import GroupSkills from '../../../assets/images/GroupSkills.svg'
+import {S} from './Skills_Styles'
 
 const skills = [
     {
@@ -30,71 +30,24 @@ const skills = [
     }
 ]
 
-const Skills = () => {
+export const Skills = () => {
     return (
-        <StyledSkills>
+        <S.Skills>
             <Container>
                 <SectionTitle widthOfLine={'15rem'} maxWidthOfLine={239} dynamicValue={'45vw'}>skills&nbsp;</SectionTitle>
                 <Content top={'45px'} bottom={'110px'} mobileTop={'25px'} mobileBottom={'50px'}>
                     <FlexWrapper justify={'flex-end'}>
-                        <SkillsWrapper direction={'column'} wrap={'wrap-reverse'} align={'flex-start'} gap={'1rem'}
+                        <S.SkillsWrapper direction={'column'} wrap={'wrap-reverse'} align={'flex-start'} gap={'1rem'}
                                        content={'flex-start'}>
                             {
                                 skills.map(skill => (
                                     <Skill skillGroupName={skill.groupName} skillUnit={skill.content}/>))
                             }
-                        </SkillsWrapper>
+                        </S.SkillsWrapper>
                     </FlexWrapper>
                 </Content>
             </Container>
-        </StyledSkills>
+        </S.Skills>
     );
 };
 
-export default Skills;
-
-const StyledSkills = styled.section`
-    ${Content} {
-        position: relative;
-
-        &::before {
-            content: '';
-            display: inline-block;
-            width: 349px;
-            height: 282px;
-            background-image: url(${GroupSkills});
-            background-size: contain;
-            background-repeat: no-repeat;
-
-            position: absolute;
-            left: 35px;
-            top: 20px;
-
-            @media screen and (max-width: 995px) {
-                display: none;
-            }
-        }
-
-        ${FlexWrapper} {
-            @media screen and (max-width: 995px) {
-                justify-content: center;
-            }
-        }
-    }
-}
-`
-
-const SkillsWrapper = styled(FlexWrapper)`
-    height: 300px;
-    max-width: 584px;
-    width: 100%;
-
-    @media screen and (max-width: 995px) {
-        flex-direction: row;
-        height: auto;
-        width: auto;
-        max-width: 100%;
-
-        flex-wrap: wrap;
-    }
-`

@@ -1,7 +1,6 @@
 import React, {FC} from 'react';
-import styled from 'styled-components';
 import {Button} from '../../../../components/Button';
-import {theme} from '../../../../styles/Theme';
+import {S} from '../Projects_Styles'
 
 type ProjectPropsType = {
     nameOfProject: string;
@@ -12,74 +11,22 @@ type ProjectPropsType = {
 
 export const Project: FC<ProjectPropsType> = ({nameOfProject, src, stack, description}) => {
     return (
-        <StyledProject>
-                <ImageWrapper>
-                    <Image src={src} alt=""/>
-                </ImageWrapper>
-                <Stack>{stack.join(' ')}</Stack>
-                <ProjectInfo>
-                    <NameOfProject>
+        <S.Project>
+                <S.ImageWrapper>
+                    <S.Image src={src} alt=""/>
+                </S.ImageWrapper>
+                <S.Stack>{stack.join(' ')}</S.Stack>
+                <S.ProjectInfo>
+                    <S.NameOfProject>
                         {nameOfProject}
-                    </NameOfProject>
-                    <DescriptionOfProject>
+                    </S.NameOfProject>
+                    <S.DescriptionOfProject>
                         {description}
-                    </DescriptionOfProject>
+                    </S.DescriptionOfProject>
                     <Button as={'a'} href={'#'}> Live &lt;~&gt; </Button>
-                </ProjectInfo>
-        </StyledProject>
+                </S.ProjectInfo>
+        </S.Project>
     );
 };
 
 
-const StyledProject = styled.article`
-    width: 330px;
-    border: ${theme.colors.fontText} solid 1px;
-    overflow: hidden;
-`
-
-const ImageWrapper = styled.div`
-    border-bottom: ${theme.colors.fontText} solid 1px;
-`
-
-const Image = styled.img`
-    display: block;
-    width: 328px;
-    height: 201px;
-    object-fit: cover;
-`
-
-const ProjectInfo = styled.div`
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-
-    ${Button} {
-        text-align: center;
-        align-content: center;
-    }
-`
-
-const Stack = styled.div`
-    padding: 8px;
-
-    border-bottom: ${theme.colors.fontText} solid 1px;
-
-    tbody tr:last-child & {
-        border-bottom: none;
-    }
-
-    font-weight: 400;
-    line-height: 1.3rem;
-`
-
-const NameOfProject = styled.h3`
-    font-weight: 500;
-    font-size: 1.5rem;
-    color: ${theme.colors.fontTitle};
-    line-height: 2rem;
-`
-
-const DescriptionOfProject = styled.p`
-
-`

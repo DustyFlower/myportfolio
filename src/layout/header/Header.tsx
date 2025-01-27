@@ -7,7 +7,23 @@ import {FlexWrapper} from '../../components/FlexWrapper';
 import {theme} from '../../styles/Theme';
 import {MobileMenu} from './headerMenu/mobileMenu/MobileMenu';
 
-const items = ['home', 'works', 'about-me', 'contacts']
+const items = [
+    {
+        title: 'home',
+        href: 'home'
+    },
+    {
+        title: 'works',
+        href: 'works'
+    },
+    {
+        title: 'about-me',
+        href: 'about-me'
+    },
+    {
+        title: 'contacts',
+        href: 'contacts'
+    }]
 
 export const Header = () => {
 

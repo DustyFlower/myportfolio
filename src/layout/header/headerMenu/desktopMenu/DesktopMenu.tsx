@@ -1,18 +1,12 @@
 import React, {FC} from 'react';
-import styled from 'styled-components';
-import {Menu} from '../menu/Menu';
+import {Menu, MenuItem} from '../menu/Menu';
+import {S} from '../Header_Styles'
 
-export const DesktopMenu:FC<{ menuItems: Array<string> }> = (props: {menuItems: Array<string>}) => {
+export const DesktopMenu:FC<{ menuItems: MenuItem[] }> = ({menuItems}) => {
     return (
-        <StyledDesktopMenu>
-            <Menu menuItems={props.menuItems} />
-        </StyledDesktopMenu>
+        <S.DesktopMenu>
+            <Menu menuItems={menuItems} />
+        </S.DesktopMenu>
     );
 };
 
-const StyledDesktopMenu = styled.nav`
-    ul {
-        display: flex;
-        gap: 2rem;
-    }
-`
