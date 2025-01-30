@@ -19,7 +19,12 @@ export const Button = styled.button<ButtonPropsType>`
     border: 1px solid ${theme.colors.accent};
     transition: all 0.2s;
     
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
     &:hover {
         background-color: rgba(199, 120, 221, 0.2);
+        transform: translateY(-2px);
     }
 `

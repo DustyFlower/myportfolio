@@ -8,6 +8,7 @@ import {Contacts} from './layout/sections/contacts/Contacts';
 import {Footer} from './layout/footer/Footer';
 import {Sidebar} from './layout/sidebar/Sidebar';
 import React, {useEffect, useState} from 'react';
+import {GoTopBtn} from './components/goTopBtn/GoTopBtn';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
             <Info/>
             <Contacts/>
             <Footer/>
+            <GoTopBtn/>
         </div>
     );
 }

@@ -6,11 +6,14 @@ import {Button} from '../../../components/Button';
 import {Container} from '../../../components/Container';
 import {theme} from '../../../styles/Theme';
 import {ModalForm} from '../../../components/modalForm/ModalForm';
-import {S} from './Main_Styles'
+import {S} from './Main_Styles';
+import Typewriter from 'typewriter-effect';
 
 export const Main = () => {
 
     const [width, setWidth] = useState(window.innerWidth);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [showAuthor, setShowAuthor] = useState(false);
     const breakpoint = 576;
     const breakpointForQuote = 730;
 
@@ -20,6 +23,10 @@ export const Main = () => {
 
         return () => window.removeEventListener('resize', handleWindowResize);
     }, []);
+
+    const onContactButtonClick = () => {
+        setModalOpen(!modalOpen)
+    };
 
     return (
         <S.Main id={'home'}>
@@ -33,9 +40,9 @@ export const Main = () => {
                             </S.Title>
                             <S.TitleDescription>She crafts responsive websites where technologies meet
                                 creativity</S.TitleDescription>
-                            <Button>Contact me!!</Button>
+                            <Button onClick={onContactButtonClick}>Contact me!!</Button>
 
-                            <ModalForm isOpen={false}/>
+                            <ModalForm isOpen={modalOpen} onClose={() => setModalOpen(false)}/>
 
                         </FlexWrapper>
                         <FlexWrapper direction={'column'} align={'center'}>
@@ -59,12 +66,52 @@ export const Main = () => {
 
                     {width > breakpointForQuote ? <FlexWrapper direction={'column'} align={'center'}>
                             <FlexWrapper direction={'column'} align={'end'}>
-                                <S.QuoteInMain textType={'quote'}>
-                                    With great power comes great electricity bill
-                                </S.QuoteInMain>
-                                <S.QuoteInMain textType={'author'}>
-                                    - Dr. Who
-                                </S.QuoteInMain>
+                                <S.QuoteInMainWrapper quoteWrapperType={'quote'}>
+                                    <S.TextOfQuote textType={'quote'}>
+                                        <Typewriter
+                                            onInit={(typewriter) => {
+                                                typewriter
+                                                    .typeString('With great power comes great electricity bill')
+                                                    .callFunction(() => {
+                                                        const cursor = document.querySelector('.Typewriter__cursor') as HTMLElement;
+                                                        if (cursor) {
+                                                            cursor.style.display = 'none';
+                                                        }
+                                                    })
+                                                    .pauseFor(10)
+                                                    .callFunction(() => {
+                                                        setShowAuthor(true);
+                                                    })
+                                                    .start();
+                                            }}
+                                            options={{
+                                                autoStart: true,
+                                                loop: false,
+                                                delay: 25,
+                                            }}
+                                        />
+                                    </S.TextOfQuote>
+                                </S.QuoteInMainWrapper>
+                                <S.QuoteInMainWrapper quoteWrapperType={'author'}>
+                                    {/* - Dr. Who*/}
+                                    {showAuthor && (
+                                        <S.TextOfQuote textType={'author'}>
+                                            <Typewriter
+                                                onInit={(typewriter) => {
+                                                    typewriter
+                                                        .typeString('- Dr. Who')
+                                                        .pauseFor(1000)
+                                                        .start();
+                                                }}
+                                                options={{
+                                                    autoStart: true,
+                                                    loop: false,
+                                                    delay: 25
+                                                }}
+                                            />
+                                        </S.TextOfQuote>
+                                    )}
+                                </S.QuoteInMainWrapper>
                             </FlexWrapper>
                         </FlexWrapper>
                         : null}

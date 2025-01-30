@@ -28,7 +28,7 @@ const items = [
 export const Header = () => {
 
     const [width, setWidth] = useState(window.innerWidth);
-    const breakpoint = 777;
+    const breakpoint = 769;
 
     useEffect(() => {
         const handleWindowResize = () => setWidth(window.innerWidth)

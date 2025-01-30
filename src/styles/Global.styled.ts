@@ -28,7 +28,7 @@ body {
     width: 100%;
     height: 100%;
     min-width: 360px;
-    
+
     position: relative;
     overflow-x: clip;
 }

@@ -168,15 +168,12 @@ const TextUnderPhoto = styled.span`
 `
 
 type QuoteInMainPropsType = {
-    textType: 'quote' | 'author'
+    quoteWrapperType: 'quote' | 'author'
 }
 
-const QuoteInMain = styled.div<QuoteInMainPropsType>`
+const QuoteInMainWrapper = styled.div<QuoteInMainPropsType>`
     border: ${theme.colors.fontText} solid 1px;
     color: ${theme.colors.fontTitle};
-    line-height: 2rem;
-    font-size: 1.5rem;
-    text-align: center;
     align-content: center;
 
     position: relative;
@@ -195,20 +192,20 @@ const QuoteInMain = styled.div<QuoteInMainPropsType>`
         top: -15px;
     }
 
-    ${props => props.textType === 'quote' && css<QuoteInMainPropsType>`
+    ${props => props.quoteWrapperType === 'quote' && css<QuoteInMainPropsType>`
         width: 712px;
         height: 95px;
-        font-weight: 500;
+        padding-left: 1.5rem;
 
         &::before {
             left: 10px;
         }
     `}
-    ${props => props.textType === 'author' && css<QuoteInMainPropsType>`
-        width: 162px;
+    ${props => props.quoteWrapperType === 'author' && css<QuoteInMainPropsType>`
+        width: 170px;
         height: 63px;
-        font-weight: 400;
         border-top: none;
+        padding-left: 1rem;
 
         &::before {
             left: 105px;
@@ -229,6 +226,24 @@ const QuoteInMain = styled.div<QuoteInMainPropsType>`
     }
 `
 
+type TextOfQuotePropsType = {
+    textType: 'quote' | 'author'
+}
+
+const TextOfQuote = styled.span<TextOfQuotePropsType>`
+    line-height: 2rem;
+    font-size: 1.5rem;
+    text-align: start;
+    
+    ${props => props.textType === 'quote' && css<TextOfQuotePropsType>`
+        font-weight: 500;
+    `}
+
+    ${props => props.textType === 'author' && css<TextOfQuotePropsType>`
+        font-weight: 400;
+    `}
+`
+
 export const S = {
     Main,
     WrapperForTwoDesktopElements,
@@ -239,5 +254,6 @@ export const S = {
     PhotoWrapper,
     TextWrapper,
     TextUnderPhoto,
-    QuoteInMain
+    QuoteInMainWrapper,
+    TextOfQuote
 }

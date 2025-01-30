@@ -29,7 +29,7 @@ export const Footer = () => {
                             <S.LogoBox>
                                 <Logo/><span>lukashevanatalia1992@gmail.com</span>
                             </S.LogoBox>
-                            <S.TextUnderLogo>Web and front-end developer</S.TextUnderLogo>
+                            <S.TextUnderLogo>Front-end developer</S.TextUnderLogo>
                         </FlexWrapper>
 
                         {width > breakpoint ?
