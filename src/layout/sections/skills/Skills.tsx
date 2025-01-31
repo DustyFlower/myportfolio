@@ -1,11 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
 import {SectionTitle} from '../../../components/SectionTitle';
 import {FlexWrapper} from '../../../components/FlexWrapper';
 import {Skill} from './skill/Skill';
 import {Container} from '../../../components/Container';
 import {Content} from '../../../components/Content';
-import {S} from './Skills_Styles'
+import {S} from './Skills_Styles';
+import {Fade} from 'react-awesome-reveal';
 
 const skills = [
     {
@@ -34,15 +34,20 @@ export const Skills = () => {
     return (
         <S.Skills>
             <Container>
-                <SectionTitle widthOfLine={'15rem'} maxWidthOfLine={239} dynamicValue={'45vw'}>skills&nbsp;</SectionTitle>
+                <SectionTitle widthOfLine={'15rem'} maxWidthOfLine={239}
+                              dynamicValue={'45vw'}>skills&nbsp;</SectionTitle>
                 <Content top={'45px'} bottom={'110px'} mobileTop={'25px'} mobileBottom={'50px'}>
                     <FlexWrapper justify={'flex-end'}>
                         <S.SkillsWrapper direction={'column'} wrap={'wrap-reverse'} align={'flex-start'} gap={'1rem'}
-                                       content={'flex-start'}>
-                            {
-                                skills.map(skill => (
-                                    <Skill skillGroupName={skill.groupName} skillUnit={skill.content}/>))
-                            }
+                                         content={'flex-start'}>
+                            <Fade cascade
+                            damping={0.1}
+                            direction={'right'}>
+                                {
+                                    skills.map(skill => (
+                                        <Skill skillGroupName={skill.groupName} skillUnit={skill.content}/>))
+                                }
+                            </Fade>
                         </S.SkillsWrapper>
                     </FlexWrapper>
                 </Content>

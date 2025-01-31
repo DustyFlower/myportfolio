@@ -33,6 +33,7 @@ const ModalFormWrapper = styled.div`
     height: 90%;
     background-color: ${theme.colors.background};
     padding: 2rem;
+    overflow: auto;
     transition: transform 0.3s ease-in-out;
 
     @media ${theme.media.mobile} {
@@ -90,10 +91,34 @@ const NameEmailWrapper = styled.div`
     }
 `
 
+const SuccessMessage = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+    
+    ${Button} {
+        margin-top: 3rem;
+    }
+`
+
+const MainSuccessMessage = styled.span`
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-bottom: 1rem;
+`
+
 export const S = {
     ModalFormOverlay,
     ModalFormWrapper,
     Form,
     Field,
-    NameEmailWrapper
+    NameEmailWrapper,
+    SuccessMessage,
+    MainSuccessMessage
 }
