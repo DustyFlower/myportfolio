@@ -31,6 +31,24 @@ body {
 
     position: relative;
     overflow-x: clip;
+
+    @media (max-width: 359px) {
+        transform-box: border-box;
+        transform-origin: top center;
+        transform: scale(0.9);
+    }
+
+    @media (max-width: 320px) {
+        transform-box: border-box;
+        transform-origin: top center;
+        transform: scale(0.85);
+    }
+
+    @media (max-width: 300px) {
+        transform-box: border-box;
+        transform-origin: top center;
+        transform: scale(0.8);
+    }
 }
 
 a {

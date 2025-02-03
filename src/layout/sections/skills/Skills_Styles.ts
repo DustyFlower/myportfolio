@@ -39,7 +39,7 @@ const SkillsWrapper = styled(FlexWrapper)`
     height: 300px;
     max-width: 584px;
     width: 100%;
-
+    
     @media screen and (max-width: 995px) {
         flex-direction: row;
         height: auto;
@@ -48,12 +48,21 @@ const SkillsWrapper = styled(FlexWrapper)`
 
         flex-wrap: wrap;
     }
+
+    .css-y5zeoq {
+        width: 185px;
+
+        @media ${theme.media.mobile} {
+            width: 100%;
+        }
+    }
 `
 
 const Skill = styled.div`
     border: ${theme.colors.fontText} 1px solid;
     width: 185px;
     border-spacing: 0;
+    }
 
     @media ${theme.media.mobile} {
         width: 100%;

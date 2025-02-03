@@ -41,8 +41,9 @@ export const Skills = () => {
                         <S.SkillsWrapper direction={'column'} wrap={'wrap-reverse'} align={'flex-start'} gap={'1rem'}
                                          content={'flex-start'}>
                             <Fade cascade
-                            damping={0.1}
-                            direction={'right'}>
+                                  damping={0.1}
+                                  direction={'right'}
+                            >
                                 {
                                     skills.map(skill => (
                                         <Skill skillGroupName={skill.groupName} skillUnit={skill.content}/>))
